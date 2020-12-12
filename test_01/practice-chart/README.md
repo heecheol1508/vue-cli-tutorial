@@ -1,4 +1,4 @@
-# test
+# practice-chart
 
 ## Project setup
 ```
