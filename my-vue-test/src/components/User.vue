@@ -2,6 +2,7 @@
   <div class="blue lighten-3 pa-3">
     <h1>User 컴포넌트</h1>
     <p>이름: {{ name }}</p>
+    <p>{{ createdAt }}</p>
     <hr />
     <v-layout row wrap>
       <v-flex xs12 sm6>
@@ -40,6 +41,7 @@ export default {
       address: "Seoul",
       phone: "1234-5678",
       hasDog: true,
+      createdAt: null,
     };
   },
   methods: {
@@ -52,6 +54,9 @@ export default {
       this.phone = user.phone;
       this.hasDog = user.hasDog;
     },
+  },
+  created() {
+    this.createdAt = new Date();
   },
 };
 </script>

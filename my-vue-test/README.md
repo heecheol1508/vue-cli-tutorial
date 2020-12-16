@@ -1,4 +1,6 @@
-# 3-week-practice
+# practice
+
+
 
 ## Project setup
 ```
