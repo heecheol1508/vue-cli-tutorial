@@ -2,7 +2,8 @@
   <div class="blue lighten-3 pa-3">
     <h1>User 컴포넌트</h1>
     <p>이름: {{ name }}</p>
-    <p>{{ createdAt }}</p>
+    <p>{{ getDateAndTime(createdAt) }}</p>
+    <p>{{ helloToMixin }}</p>
     <hr />
     <v-layout row wrap>
       <v-flex xs12 sm6>
@@ -29,6 +30,7 @@
 <script>
 import UserDetail from "./UserDetail.vue";
 import UserEdit from "./UserEdit.vue";
+import { dateFormat } from "../mixins/dateFormat";
 
 export default {
   components: {
@@ -45,9 +47,6 @@ export default {
     };
   },
   methods: {
-    changeName() {
-      this.name = "아비투스";
-    },
     parents(user) {
       this.name = user.name;
       this.address = user.address;
@@ -57,6 +56,12 @@ export default {
   },
   created() {
     this.createdAt = new Date();
+  },
+  mixins: [dateFormat],
+  computed: {
+    helloToMixin() {
+      return this.mixinData + " <- this.mixinData로 사용가능...";
+    },
   },
 };
 </script>
